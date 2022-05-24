@@ -15,7 +15,14 @@ class ContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundColor = .systemYellow
+       tableView.backgroundColor = .black
+        /*
+         --- Some test
+        let contact1 = Contact(name: "Vasya", secondName: "Pupkin", phoneNumber: 79994257889)
+        let contact2 = Contact(name: "Petya", secondName: "Lozhkin", phoneNumber: 79923459955)
+        contacts.append(contact1)
+        contacts.append(contact2)
+         */
     }
 
 
@@ -29,7 +36,9 @@ extension ContactsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactTableViewCell
+        let contact = contacts[indexPath.row]
+        cell.configure(with: contact)
         
         return cell
     }

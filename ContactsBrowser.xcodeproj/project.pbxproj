@@ -14,6 +14,7 @@
 		A3444CFC283D4C9F00B92B7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3444CFB283D4C9F00B92B7F /* Assets.xcassets */; };
 		A3444CFF283D4C9F00B92B7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3444CFD283D4C9F00B92B7F /* LaunchScreen.storyboard */; };
 		A3444D0B283D556400B92B7F /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3444D0A283D556400B92B7F /* ContactModel.swift */; };
+		A3444D0D283D5C2900B92B7F /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3444D0C283D5C2900B92B7F /* ContactTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A3444CFE283D4C9F00B92B7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3444D00283D4C9F00B92B7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3444D0A283D556400B92B7F /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		A3444D0C283D5C2900B92B7F /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				A3444CF8283D4C9E00B92B7F /* Contacts.storyboard */,
+				A3444D0C283D5C2900B92B7F /* ContactTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3444CF7283D4C9E00B92B7F /* ContactsViewController.swift in Sources */,
+				A3444D0D283D5C2900B92B7F /* ContactTableViewCell.swift in Sources */,
 				A3444CF3283D4C9E00B92B7F /* AppDelegate.swift in Sources */,
 				A3444D0B283D556400B92B7F /* ContactModel.swift in Sources */,
 				A3444CF5283D4C9E00B92B7F /* SceneDelegate.swift in Sources */,

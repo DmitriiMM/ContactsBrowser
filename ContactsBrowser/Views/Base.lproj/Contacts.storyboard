@@ -20,13 +20,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="AIw-sF-aMS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="AIw-sF-aMS" customClass="ContactTableViewCell" customModule="ContactsBrowser" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AIw-sF-aMS" id="1LB-rG-iz8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jm5-bL-Axw">
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Jm5-bL-Axw" firstAttribute="trailing" secondItem="1LB-rG-iz8" secondAttribute="trailingMargin" id="Jd1-Kx-mE1"/>
+                                                <constraint firstItem="Jm5-bL-Axw" firstAttribute="leading" secondItem="1LB-rG-iz8" secondAttribute="leadingMargin" id="NaG-qC-y7h"/>
+                                                <constraint firstItem="Jm5-bL-Axw" firstAttribute="top" secondItem="1LB-rG-iz8" secondAttribute="topMargin" id="f81-9Q-hBa"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" secondItem="Jm5-bL-Axw" secondAttribute="height" multiplier="2.07143" id="neE-zg-Gmm"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="contactLabel" destination="Jm5-bL-Axw" id="H6b-oM-egt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
