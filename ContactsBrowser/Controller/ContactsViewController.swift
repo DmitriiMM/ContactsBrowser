@@ -48,10 +48,10 @@ class ContactsViewController: UIViewController, MFMailComposeViewControllerDeleg
             ]
             let request = CNContactFetchRequest(keysToFetch: keysToFetch)
             try contactStore.enumerateContacts(with: request, usingBlock: { cnContact, error in
-                if cnContact.isKeyAvailable(CNContactEmailAddressesKey) {
-                    for entry in cnContact.emailAddresses {
-                        let strValue = entry.value as String
-                        if entry.label == CNLabelHome && !strValue.isEmpty {
+                if cnContact.isKeyAvailable(CNContactPhoneNumbersKey) {
+                    for entry in cnContact.phoneNumbers {
+                       // let strValue = entry.value
+                        if entry.label == CNLabelHome /*&& !strValue.isEmpty */{
                             self.contacts.append(cnContact)
                             break
                         }
@@ -63,14 +63,6 @@ class ContactsViewController: UIViewController, MFMailComposeViewControllerDeleg
             print("Ошибка получения списка контактов!")
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
