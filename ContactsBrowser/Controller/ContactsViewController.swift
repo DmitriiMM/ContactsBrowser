@@ -6,11 +6,71 @@
 //
 
 import UIKit
+import Contacts
+import MessageUI
 
-class ContactsViewController: UIViewController {
+class ContactsViewController: UIViewController, MFMailComposeViewControllerDelegate {
+    
+    var contactStore = CNContactStore()
+    var contacts: [CNContact] = []
 
     @IBOutlet weak var tableView: UITableView!
-    var contacts = [Contact]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let authrizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
+        
+        switch authrizationStatus {
+        case .authorized:
+            loadContacts()
+            break
+        case .denied, .notDetermined:
+            self.contactStore.requestAccess(for: .contacts) { [self] access, accessError in
+                if access {
+                    loadContacts()
+                } else {
+                    print("Право доступа к контактам не предоставлено!")
+                }
+            }
+        default:
+            print("Право доступа к контактам не предоставлено!")
+            break
+        }
+    }
+    
+    func loadContacts() {
+        do {
+            contacts = [CNContact]()
+            let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+                               CNContactPhoneNumbersKey as CNKeyDescriptor,
+                               CNContactEmailAddressesKey as CNKeyDescriptor,
+            ]
+            let request = CNContactFetchRequest(keysToFetch: keysToFetch)
+            try contactStore.enumerateContacts(with: request, usingBlock: { cnContact, error in
+                if cnContact.isKeyAvailable(CNContactEmailAddressesKey) {
+                    for entry in cnContact.emailAddresses {
+                        let strValue = entry.value as String
+                        if entry.label == CNLabelHome && !strValue.isEmpty {
+                            self.contacts.append(cnContact)
+                            break
+                        }
+                    }
+                }
+            })
+            self.tableView.reloadData()
+        } catch {
+            print("Ошибка получения списка контактов!")
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

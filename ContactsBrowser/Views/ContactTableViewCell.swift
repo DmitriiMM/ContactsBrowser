@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Contacts
 
 class ContactTableViewCell: UITableViewCell {
     
     @IBOutlet weak var contactLabel: UILabel!
     
-    func configure(with model: Contact) {
-        self.contactLabel.text = model.name + " " + model.secondName
+    func configure(with model: CNContact) {
+        self.contactLabel.text = model.givenName + " " + model.familyName
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
