@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct Contact {
     var name: String
     var secondName: String
-    var phoneNumber: Int
+    var phoneNumber: String?
+    var photo: UIImage?
 }

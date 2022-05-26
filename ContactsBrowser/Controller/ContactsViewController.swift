@@ -12,8 +12,8 @@ import MessageUI
 class ContactsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var contactStore = CNContactStore()
-    var contacts: [CNContact] = []
-
+    var contacts: [Contact] = []
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,7 +24,6 @@ class ContactsViewController: UIViewController, MFMailComposeViewControllerDeleg
         switch authrizationStatus {
         case .authorized:
             loadContacts()
-            break
         case .denied, .notDetermined:
             self.contactStore.requestAccess(for: .contacts) { [self] access, accessError in
                 if access {
@@ -41,43 +40,34 @@ class ContactsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     func loadContacts() {
         do {
-            contacts = [CNContact]()
-            let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
-                               CNContactPhoneNumbersKey as CNKeyDescriptor,
-                               CNContactEmailAddressesKey as CNKeyDescriptor,
+            contacts = []
+            let keysToFetch = [
+                CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+                CNContactPhoneNumbersKey as CNKeyDescriptor,
+                CNContactEmailAddressesKey as CNKeyDescriptor,
+                CNContactImageDataKey as CNKeyDescriptor,
             ]
+            
             let request = CNContactFetchRequest(keysToFetch: keysToFetch)
+            
             try contactStore.enumerateContacts(with: request, usingBlock: { cnContact, error in
-                if cnContact.isKeyAvailable(CNContactPhoneNumbersKey) {
-                    for entry in cnContact.phoneNumbers {
-                       // let strValue = entry.value
-                        if entry.label == CNLabelHome /*&& !strValue.isEmpty */{
-                            self.contacts.append(cnContact)
-                            break
-                        }
-                    }
+                var image: UIImage? = nil
+                if let data = cnContact.imageData {
+                    image = UIImage(data: data)
                 }
+                let contact = Contact(
+                    name: cnContact.givenName,
+                    secondName: cnContact.familyName,
+                    phoneNumber: cnContact.phoneNumbers.first?.value.stringValue,
+                    photo: image
+                )
+                self.contacts.append(contact)
             })
             self.tableView.reloadData()
         } catch {
             print("Ошибка получения списка контактов!")
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-       tableView.backgroundColor = .black
-        /*
-         --- Some test
-        let contact1 = Contact(name: "Vasya", secondName: "Pupkin", phoneNumber: 79994257889)
-        let contact2 = Contact(name: "Petya", secondName: "Lozhkin", phoneNumber: 79923459955)
-        contacts.append(contact1)
-        contacts.append(contact2)
-         */
-    }
-
-
 }
 
 extension ContactsViewController: UITableViewDelegate {}
