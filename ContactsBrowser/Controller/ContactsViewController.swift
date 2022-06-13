@@ -7,12 +7,13 @@
 
 import UIKit
 import Contacts
-import MessageUI
 
-class ContactsViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class ContactsViewController: UIViewController {
     
     var contactStore = CNContactStore()
     var contacts: [Contact] = []
+    
+    let defaultPhoto = UIImage(named: "defaultPhoto")
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -68,6 +69,17 @@ class ContactsViewController: UIViewController, MFMailComposeViewControllerDeleg
             print("Ошибка получения списка контактов!")
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == "detailSegue" else { return }
+        guard let destination = segue.destination as? DetailViewController else { return }
+        let cell = sender as! ContactTableViewCell
+
+        destination.photo = cell.photoImageView.image
+        destination.name = cell.contactLabel.text ?? ""
+        destination.phone = cell.phoneLabel.text ?? ""
+    }
 }
 
 extension ContactsViewController: UITableViewDelegate {}
@@ -84,6 +96,4 @@ extension ContactsViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }

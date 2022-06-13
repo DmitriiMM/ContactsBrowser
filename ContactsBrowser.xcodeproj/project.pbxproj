@@ -16,6 +16,7 @@
 		A3444D0B283D556400B92B7F /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3444D0A283D556400B92B7F /* ContactModel.swift */; };
 		A3444D0D283D5C2900B92B7F /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3444D0C283D5C2900B92B7F /* ContactTableViewCell.swift */; };
 		A3444D10283D657E00B92B7F /* GetContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3444D0F283D657E00B92B7F /* GetContactsService.swift */; };
+		A35DEC4528435B37003F81CE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35DEC4428435B37003F81CE /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A3444D0A283D556400B92B7F /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		A3444D0C283D5C2900B92B7F /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		A3444D0F283D657E00B92B7F /* GetContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContactsService.swift; sourceTree = "<group>"; };
+		A35DEC4428435B37003F81CE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				A3444CF6283D4C9E00B92B7F /* ContactsViewController.swift */,
+				A35DEC4428435B37003F81CE /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				A3444D0B283D556400B92B7F /* ContactModel.swift in Sources */,
 				A3444CF5283D4C9E00B92B7F /* SceneDelegate.swift in Sources */,
 				A3444D10283D657E00B92B7F /* GetContactsService.swift in Sources */,
+				A35DEC4528435B37003F81CE /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
