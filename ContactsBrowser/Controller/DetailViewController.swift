@@ -9,20 +9,14 @@ import UIKit
 
 class DetailViewController: UIViewController {
    
-    var name = "NAME"
-    var photo = UIImage(named: "defaultPhoto")
-    var phone = "PHONE"
+    var photo = UIImage(systemName: "person.fill")
    
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var bdayLabel: UILabel!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLabel.text = name
-        phoneLabel.text = phone
+        
+        view.backgroundColor = .yellow
         photoImageView.image = photo
     }
    

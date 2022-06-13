@@ -12,9 +12,7 @@ class ContactsViewController: UIViewController {
     
     var contactStore = CNContactStore()
     var contacts: [Contact] = []
-    
-    let defaultPhoto = UIImage(named: "defaultPhoto")
-    
+  
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,14 +69,13 @@ class ContactsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard segue.identifier == "detailSegue" else { return }
         guard let destination = segue.destination as? DetailViewController else { return }
         let cell = sender as! ContactTableViewCell
-
-        destination.photo = cell.photoImageView.image
-        destination.name = cell.contactLabel.text ?? ""
-        destination.phone = cell.phoneLabel.text ?? ""
+        
+        if cell.photoImageView.image != nil {
+            destination.photoImageView?.image = cell.photoImageView.image
+        }
     }
 }
 
