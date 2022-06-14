@@ -73,8 +73,13 @@ class ContactsViewController: UIViewController {
         guard let destination = segue.destination as? DetailViewController else { return }
         let cell = sender as! ContactTableViewCell
         
+        let indexPath = tableView.indexPathForSelectedRow
+        let contact = contacts[indexPath?.row ?? 0]
+        cell.configure(with: contact)
+        
+        destination.name = cell.contactLabel.text ?? "man"
         if cell.photoImageView.image != nil {
-            destination.photoImageView?.image = cell.photoImageView.image
+            destination.photo = cell.photoImageView.image
         }
     }
 }
