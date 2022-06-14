@@ -13,4 +13,5 @@ struct Contact {
     var secondName: String
     var phoneNumber: String?
     var photo: UIImage?
+    var birthday: String?
 }

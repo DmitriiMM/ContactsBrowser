@@ -45,6 +45,7 @@ class ContactsViewController: UIViewController {
                 CNContactPhoneNumbersKey as CNKeyDescriptor,
                 CNContactEmailAddressesKey as CNKeyDescriptor,
                 CNContactImageDataKey as CNKeyDescriptor,
+                CNContactBirthdayKey as CNKeyDescriptor,
             ]
             
             let request = CNContactFetchRequest(keysToFetch: keysToFetch)
@@ -58,7 +59,8 @@ class ContactsViewController: UIViewController {
                     name: cnContact.givenName,
                     secondName: cnContact.familyName,
                     phoneNumber: cnContact.phoneNumbers.first?.value.stringValue,
-                    photo: image
+                    photo: image,
+                    birthday: cnContact.birthday?.description
                 )
                 self.contacts.append(contact)
             })
@@ -80,6 +82,17 @@ class ContactsViewController: UIViewController {
         destination.name = cell.contactLabel.text ?? "man"
         if cell.photoImageView.image != nil {
             destination.photo = cell.photoImageView.image
+        }
+        
+        if cell.photoImageView.image != nil {
+            let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+            backgroundImage.image = cell.photoImageView.image
+            backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+            destination.view.insertSubview(backgroundImage, at: 0)
+        }
+        
+        if contact.phoneNumber == nil {
+            destination.callBtnOutlet.isEnabled = false
         }
     }
 }

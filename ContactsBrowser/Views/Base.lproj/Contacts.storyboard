@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -119,6 +120,56 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MR7-3O-dam">
+                                <rect key="frame" x="20" y="300" width="374" height="49.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8S-am-UYC">
+                                        <rect key="frame" x="0.0" y="0.0" width="87.5" height="49.5"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Message" imagePadding="4" cornerStyle="medium" titleAlignment="automatic">
+                                            <imageReference key="image" image="message.fill" catalog="system" symbolScale="medium"/>
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                            <color key="baseForegroundColor" systemColor="systemBlueColor"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udb-bi-cdR">
+                                        <rect key="frame" x="95.5" y="0.0" width="87.5" height="49.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Call" imagePadding="4" cornerStyle="medium">
+                                            <imageReference key="image" image="phone.fill" catalog="system" symbolScale="medium"/>
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbS-d3-P7h">
+                                        <rect key="frame" x="191" y="0.0" width="87.5" height="49.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Video" imagePadding="4" cornerStyle="medium">
+                                            <imageReference key="image" image="video.fill" catalog="system" symbolScale="medium"/>
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVi-S7-wSu">
+                                        <rect key="frame" x="286.5" y="0.0" width="87.5" height="49.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="Email" imagePadding="4" cornerStyle="medium">
+                                            <imageReference key="image" image="envelope.fill" catalog="system" symbolScale="medium"/>
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </backgroundConfiguration>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hvW-7q-NAj"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -126,16 +177,23 @@
                             <constraint firstItem="hvW-7q-NAj" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="a63-fH-ved" secondAttribute="trailing" constant="168" id="4GF-CP-VeM"/>
                             <constraint firstItem="a63-fH-ved" firstAttribute="leading" relation="lessThanOrEqual" secondItem="hvW-7q-NAj" secondAttribute="leading" constant="169" id="8ov-df-de2"/>
                             <constraint firstItem="a63-fH-ved" firstAttribute="top" secondItem="mNT-iX-ePd" secondAttribute="bottom" constant="23" id="8rb-UO-6hj"/>
+                            <constraint firstItem="MR7-3O-dam" firstAttribute="top" secondItem="a63-fH-ved" secondAttribute="bottom" constant="23" id="KqN-av-829"/>
                             <constraint firstItem="mNT-iX-ePd" firstAttribute="top" secondItem="hvW-7q-NAj" secondAttribute="top" constant="8" id="WSq-57-IY3"/>
                             <constraint firstItem="hvW-7q-NAj" firstAttribute="trailing" secondItem="mNT-iX-ePd" secondAttribute="trailing" constant="143" id="bmb-Py-DJd"/>
+                            <constraint firstItem="hvW-7q-NAj" firstAttribute="trailing" secondItem="MR7-3O-dam" secondAttribute="trailing" constant="20" id="de8-9d-bKf"/>
+                            <constraint firstItem="MR7-3O-dam" firstAttribute="leading" secondItem="hvW-7q-NAj" secondAttribute="leading" constant="20" id="f6q-qV-5Zc"/>
                             <constraint firstItem="a63-fH-ved" firstAttribute="centerX" secondItem="hvW-7q-NAj" secondAttribute="centerX" id="grV-VF-kgl"/>
                             <constraint firstItem="mNT-iX-ePd" firstAttribute="leading" secondItem="hvW-7q-NAj" secondAttribute="leading" constant="143" id="tb6-rA-jlO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Rm4-2Z-5bj"/>
                     <connections>
+                        <outlet property="callBtnOutlet" destination="udb-bi-cdR" id="rod-Xd-RQl"/>
+                        <outlet property="emailBtnOutlet" destination="SVi-S7-wSu" id="eHd-a3-T0p"/>
+                        <outlet property="messageBtnOutlet" destination="L8S-am-UYC" id="edT-3u-ERa"/>
                         <outlet property="nameLabel" destination="a63-fH-ved" id="Cf0-Gj-mhG"/>
                         <outlet property="photoImageView" destination="mNT-iX-ePd" id="Dcz-kb-GwE"/>
+                        <outlet property="videoBtnOutlet" destination="fbS-d3-P7h" id="0qQ-Vg-ElX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmK-IN-LCf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -162,7 +220,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <image name="video.fill" catalog="system" width="128" height="82"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -174,6 +236,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
